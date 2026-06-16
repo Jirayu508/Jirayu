@@ -1,0 +1,62 @@
+<?php
+// --- โค้ดส่วนข้อมูลฝั่งซ้าย (ตัวแปรและการคำนวณ) ---
+$a = 3;
+$b = 4;
+$sum = $a + $b;
+
+// --- โค้ดส่วนข้อมูลฝั่งขวา (Variable Variables) ---
+$A = 'B';
+$$A = 20.5; // บรรทัดนี้จะสร้างตัวแปรชื่อ $B ให้มีค่าเป็น 20.5 โดยอัตโนมัติ
+?>
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+        }
+        .container {
+            display: flex;
+            gap: 150px; /* เว้นระยะห่างระหว่างสองฝั่ง */
+            margin-top: 20px;
+        }
+        .column {
+            line-height: 1.8;
+        }
+        .header {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- ฝั่งซ้าย -->
+    <div class="column">
+        <div class="header">ผลลัพธ์</div>
+        <?php
+        // ใช้เครื่องหมาย \ (Backslash) เพื่อกดข่มเครื่องหมาย $ ไม่ให้แปลงเป็นตัวแปร เพื่อให้แสดงผลเป็นข้อความตัวอักษรแทน
+        echo "ค่าของ \$a คือ " . $a . "<br>";
+        echo "ค่าของ \$b คือ " . $b . "<br>";
+        echo "ผลรวมของ \$a และ \$b คือ " . $sum . "<br>";
+        ?>
+    </div>
+
+    <!-- ฝั่งขวา -->
+    <div class="column">
+        <div class="header">ผลลัพธ์</div>
+        <?php
+        echo "\$A=" . $A . "<br>";
+        echo "\$\$A=" . $$A . "<br>";
+        echo "\$B=" . $B . "<br>"; // เรียกใช้ $B ที่เกิดขึ้นมาจาก $$A
+        ?>
+    </div>
+</div>
+
+</body>
+</html>
